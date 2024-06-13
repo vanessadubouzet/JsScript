@@ -64,3 +64,32 @@ if (mark.bmi > john.bmi) {
 } else if (john.bmi > mark.bmi) {
   console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})!`)
 }
+
+// CODING CHALLENGE #4
+
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+  }
+  
+  /* Write your code below. Good luck! 🙂 */
+  
+  const bill = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+  const tip = [];
+  const total = [];
+  
+  for (let i = 0; i < bill.length; i++) {
+      tip.push(calcTip(bill[i]));
+      total.push(tip[i] + bill[i]);
+  }
+  
+  const calcAverage = function (arr) {
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++){
+          sum += arr[i];
+      }
+      const avg = sum / arr.length
+      return avg;
+  }
+  
+  calcAverage(total);
+  
