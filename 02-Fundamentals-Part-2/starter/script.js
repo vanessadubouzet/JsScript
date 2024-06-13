@@ -9,7 +9,7 @@ function calcAverage (firstScore, secondScore, thirdScore) {
 const scoreDolphins = calcAverage(85, 54, 41);
 const scoreKoalas = calcAverage(23, 34, 27); 
 
-function checkWinner (avgDolphins, avgKoalas) {
+function checkWinners (avgDolphins, avgKoalas) {
     if(avgDolphins >= 2 * avgKoalas) {
         console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
     } else if (avgKoalas >= 2 * avgDolphins) {
@@ -19,7 +19,7 @@ function checkWinner (avgDolphins, avgKoalas) {
     }
 }
 
-checkWinner(scoreDolphins, scoreKoalas);
+checkWinners(scoreDolphins, scoreKoalas);
 
  // CODING CHALLENGE #2
  function calcTip(bill) {
