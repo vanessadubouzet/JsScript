@@ -45,38 +45,41 @@ const restaurant = {
   }
 };
 
-// DESTRUCTURING
 
-// SPREAD, RIGHT side of the assignment operator
-const arr = [1, 2, ...[3,4]];
 
-// REST, LEFT side of the assignment operator
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log[a, b, others]; 
 
-const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(pizza, risotto, otherFood);
+// // DESTRUCTURING
 
-// Objects 
-const { sat, ...weekdays } = restaurant.openingHours
-console.log(weekdays);
+// // SPREAD, RIGHT side of the assignment operator
+// const arr = [1, 2, ...[3,4]];
 
-// FUNCTIONS
-const add = function (...numbers) {
-  let sum = 0;
-  for(let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
-  console.log(sum);
-}
+// // REST, LEFT side of the assignment operator
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log[a, b, others]; 
 
-add(2,3);
-add(2,3,4,5,6);
+// const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(pizza, risotto, otherFood);
 
-const xx = [23, 5, 7];
-add(...xx);
+// // Objects 
+// const { sat, ...weekdays } = restaurant.openingHours
+// console.log(weekdays);
 
-restaurant.orderPizza('mushrooms', 'pepperoni', 'onion');
+// // FUNCTIONS
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for(let i = 0; i < numbers.length; i++) {
+//     sum += numbers[i];
+//   }
+//   console.log(sum);
+// }
+
+// add(2,3);
+// add(2,3,4,5,6);
+
+// const xx = [23, 5, 7];
+// add(...xx);
+
+// restaurant.orderPizza('mushrooms', 'pepperoni', 'onion');
 
 //////////////// Spread Operator
 // const arr = [7, 8, 9];
