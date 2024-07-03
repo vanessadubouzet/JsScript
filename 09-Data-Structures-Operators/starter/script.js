@@ -38,6 +38,10 @@ const restaurant = {
 
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your deicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
+
+  orderPizza: function(mainIngredients, ...otherIngredients) {
+    console.log(mainIngredients, otherIngredients);
   }
 };
 
@@ -58,6 +62,21 @@ const { sat, ...weekdays } = restaurant.openingHours
 console.log(weekdays);
 
 // FUNCTIONS
+const add = function (...numbers) {
+  let sum = 0;
+  for(let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+}
+
+add(2,3);
+add(2,3,4,5,6);
+
+const xx = [23, 5, 7];
+add(...xx);
+
+restaurant.orderPizza('mushrooms', 'pepperoni', 'onion');
 
 //////////////// Spread Operator
 // const arr = [7, 8, 9];
