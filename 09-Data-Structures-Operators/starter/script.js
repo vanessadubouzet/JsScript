@@ -4,6 +4,40 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+
+const fixCap = function(name) {
+  const lowerCase = name.toLowerCase();
+  const final = lowerCase[0].toUpperCase() + lowerCase.slice(1);
+  console.log(final);
+}
+
+fixCap('vanEsSa');
+
+
+
+// const checkMiddleSeat = function (seat) {
+//   //B and E are middle seats
+//   const s = seat.slice(-1);
+//   if (s === 'B' || s === 'E') {
+//     console.log('You Got the middle seat');
+//   } else {
+//     console.log('You got lucky');
+//   }
+// }
+
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
+
+
 const weekdays = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 const openingHours = {
@@ -55,41 +89,41 @@ const restaurant = {
   }
 };
 
-const rest = new Map();
-rest.set('name', 'Classico Italiano');
-rest.set(1, 'Firenze, Italy');
-rest.set(2, 'Libson, Portugal');
+// const rest = new Map();
+// rest.set('name', 'Classico Italiano');
+// rest.set(1, 'Firenze, Italy');
+// rest.set(2, 'Libson, Portugal');
 
-const question = new Map([
-  ['question', 'what is the best programming language in the world?'],
-  [1, 'C'],
-  [2, 'Java'],
-  [3, 'JavaScript'],
-  ['correct', 3],
-  [true, 'Correct!'],
-  [false, 'Try Again!!']
-])
-console.log(question);
+// const question = new Map([
+//   ['question', 'what is the best programming language in the world?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'JavaScript'],
+//   ['correct', 3],
+//   [true, 'Correct!'],
+//   [false, 'Try Again!!']
+// ])
+// console.log(question);
 
-// Convert object to map
-console.log(Object.entries(openingHours));
-const hoursMap = new Map (Object.entries(openingHours));
-console.log(hoursMap);
+// // Convert object to map
+// console.log(Object.entries(openingHours));
+// const hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
 
-// Quiz App
+// // Quiz App
 
-console.log(question.get('question'));
-for (const [key, value] of question) {
-  if(typeof key === 'number') console.log(`Answer ${key}: ${value}`);
-}
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+// }
 
-const answer = 3;
-console.log(answer);
+// const answer = 3;
+// console.log(answer);
 
-console.log(question.get(question.get('correct') === answer));
+// console.log(question.get(question.get('correct') === answer));
 
-// Convert Map to array
-console.log([...question]);
+// // Convert Map to array
+// console.log([...question]);
 
 // const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
 // console.log(ordersSet);
@@ -418,21 +452,21 @@ const gameEvents = new Map([
   [92, '🔶 Yellow card'],
 ]);
 
-// 1. 
-const events = new Set([...gameEvents.values()]);
+// // 1. 
+// const events = new Set([...gameEvents.values()]);
 
-// 2. 
-events.delete(64);
+// // 2. 
+// events.delete(64);
 
-// 3. 
-const time = [...gameEvents.keys()].pop();
-console.log(`An event happened, on average, every ${time/ gameEvents.size} minutes`);
+// // 3. 
+// const time = [...gameEvents.keys()].pop();
+// console.log(`An event happened, on average, every ${time/ gameEvents.size} minutes`);
 
-// 4. 
-for (const [min, event] of gameEvents) {
-  const half = min <- 45 ? 'FIRST' : 'SECOND';
-  console.log(`[${half} HALF] ${min}: ${event}`);
-}
+// // 4. 
+// for (const [min, event] of gameEvents) {
+//   const half = min <- 45 ? 'FIRST' : 'SECOND';
+//   console.log(`[${half} HALF] ${min}: ${event}`);
+// }
 
 ///////////////////////////////////////
 // Coding Challenge #2
