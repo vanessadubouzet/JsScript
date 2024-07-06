@@ -4,90 +4,167 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+const getCode = str => str.slice(0,3).toUpperCase();
 
-const airline = 'TAP Air Portugal';
-const plane = 'A320';
+for(const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '🔴' : ' '}${type.replaceAll('_', ' ')} ${getCode(from)} ${getCode(to)} (${time.replace(':', 'h')})`.padStart(40);
 
-// console.log(plane[0]);
-// console.log(plane[1]);
-// console.log(plane[2]);
-
-const fixCap = function(name) {
-  const lowerCase = name.toLowerCase();
-  const final = lowerCase[0].toUpperCase() + lowerCase.slice(1);
-  console.log(final);
+  console.log(output);
 }
 
-fixCap('vanEsSa');
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
 
+// // console.log(plane[0]);
+// // console.log(plane[1]);
+// // console.log(plane[2]);
 
+// const fixCap = function (name) {
+//   const lowerCase = name.toLowerCase();
+//   const final = lowerCase[0].toUpperCase() + lowerCase.slice(1);
+//   console.log(final);
+// }
 
-// const checkMiddleSeat = function (seat) {
-//   //B and E are middle seats
-//   const s = seat.slice(-1);
-//   if (s === 'B' || s === 'E') {
-//     console.log('You Got the middle seat');
+// fixCap('vanEsSa');
+
+// // replacing
+// const priceGB = '288,97£';
+// const priceUS = priceGB.replace('£', '$').replace(',', '.');
+// console.log(priceUS);
+
+// const announcement = 'All passengers come to boading door 23. Boarding door 23!';
+// console.log(announcement.replaceAll('door', 'gate'));
+
+// // booleans
+// const planes = 'A32neo';
+// console.log(plane.includes('A320'));
+// console.log(plane.includes('Boeing'));
+// console.log(plane.startsWith('Ai'));
+
+// if (planes.startsWith('A') && planes.endsWith('neo')) {
+//   console.log('Part of the new air family');
+// }
+
+// // Practice exercise 
+// const checkBaggage = function (items) {
+//   const baggage = items.toLowerCase();
+//   if (baggage.includes('knife') || baggage.includes('gun')) {
+//     console.log('You are NOT allowed on board');
 //   } else {
-//     console.log('You got lucky');
+//     console.log('Welcome aboard');
 //   }
 // }
 
-
-// checkMiddleSeat('11B');
-// checkMiddleSeat('23C');
-// checkMiddleSeat('3E');
-
-
-const weekdays = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
-
-const openingHours = {
-  [weekdays[2]]: {
-    open: 12,
-    close: 22,
-  },
-  thu: {
-    open: 12,
-    close: 22,
-  },
-  fri: {
-    open: 11,
-    close: 23,
-  },
-  sat: {
-    open: 0, // Open 24 hours
-    close: 24,
-  },
-};
-
-// Data needed for first part of the section
-const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+// checkBaggage("I have a laptop, food and knife");
+// checkBaggage("I have a gun, food and knife");
+// checkBaggage("I have a laptop, food");
 
 
-  // ES6 enchance object literals
-  openingHours,
+// const capitalizeName = function (name) {
+//   const names = name.toLowerCase().split(' ');
+//   const nameUpper = [];
 
-  order(starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },
+//   for (const n of names) {
+//     // nameUpper.push(n[0].toUpperCase() + n.slice(1));
+//     nameUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//   }
 
-  orderDelivery({ starterIndex, mainIndex, time, address }) {
-    console.log(`Order Recieved! ${this.starterMenu[starterIndex]} and 
-      ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
-  },
+//   console.log(nameUpper.join(' '));
+// }
 
-  orderPasta(ing1, ing2, ing3) {
-    console.log(`Here is your deicious pasta with ${ing1}, ${ing2}, ${ing3}`);
-  },
+// capitalizeName('roronoa zoro');
+// capitalizeName('nico robin one Piece');
 
-  orderPizza(mainIngredients, ...otherIngredients) {
-    console.log(mainIngredients, otherIngredients);
-  }
-};
+// // Padding
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(25, '+'));
+
+
+// const maskCreditCard = function (number) {
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   console.log(last.padStart(str.length, '*'));
+// }
+
+// maskCreditCard(12213244);
+
+// // Repeat
+// const message2 = 'Bad weather... All Departures Delayed ';
+// console.log(message2.repeat(5));
+
+// const planesInLine = function (n) {
+//   console.log(`There are ${n} planes in line`);
+// }
+
+// planesInLine(5);
+
+// // const checkMiddleSeat = function (seat) {
+// //   //B and E are middle seats
+// //   const s = seat.slice(-1);
+// //   if (s === 'B' || s === 'E') {
+// //     console.log('You Got the middle seat');
+// //   } else {
+// //     console.log('You got lucky');
+// //   }
+// // }
+
+
+// // checkMiddleSeat('11B');
+// // checkMiddleSeat('23C');
+// // checkMiddleSeat('3E');
+
+
+// const weekdays = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// const openingHours = {
+//   [weekdays[2]]: {
+//     open: 12,
+//     close: 22,
+//   },
+//   thu: {
+//     open: 12,
+//     close: 22,
+//   },
+//   fri: {
+//     open: 11,
+//     close: 23,
+//   },
+//   sat: {
+//     open: 0, // Open 24 hours
+//     close: 24,
+//   },
+// };
+
+// // Data needed for first part of the section
+// const restaurant = {
+//   name: 'Classico Italiano',
+//   location: 'Via Angelo Tavanti 23, Firenze, Italy',
+//   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+//   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+//   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+
+//   // ES6 enchance object literals
+//   openingHours,
+
+//   order(starterIndex, mainIndex) {
+//     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+//   },
+
+//   orderDelivery({ starterIndex, mainIndex, time, address }) {
+//     console.log(`Order Recieved! ${this.starterMenu[starterIndex]} and 
+//       ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+//   },
+
+//   orderPasta(ing1, ing2, ing3) {
+//     console.log(`Here is your deicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+//   },
+
+//   orderPizza(mainIngredients, ...otherIngredients) {
+//     console.log(mainIngredients, otherIngredients);
+//   }
+// };
 
 // const rest = new Map();
 // rest.set('name', 'Classico Italiano');
@@ -551,3 +628,53 @@ const game = {
 //   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`; 
 //   console.log(`Odd of ${teamStr}: ${odd}`);
 // }
+
+
+
+///////////////////////////////////////
+// Coding Challenge #4
+
+/* 
+Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
+
+The input will come from a textarea inserted into the DOM (see code below), and conversion will happen when the button is pressed.
+
+THIS TEST DATA (pasted to textarea)
+underscore_case
+ first_name
+Some_Variable 
+  calculate_AGE
+delayed_departure
+
+SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
+underscoreCase      ✅
+firstName           ✅✅
+someVariable        ✅✅✅
+calculateAge        ✅✅✅✅
+delayedDeparture    ✅✅✅✅✅
+
+HINT 1: Remember which character defines a new line in the textarea 😉
+HINT 2: The solution only needs to work for a variable made out of 2 words, like a_b
+HINT 3: Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
+HINT 4: This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
+
+Afterwards, test with your own test data!
+
+GOOD LUCK
+*/
+
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const words = (document.querySelector('textarea').value).toLowerCase();
+  console.log(words);
+  const rows = (words.split('\n'));
+  for (const n of rows) {
+    const first = n.slice(0, n.indexOf('_'));
+    const last = n.slice(n.indexOf('_') + 1);
+    console.log(`${(first + (last.replace(last[0], last[0].toUpperCase()))).trim()}`);
+  }
+});
+
