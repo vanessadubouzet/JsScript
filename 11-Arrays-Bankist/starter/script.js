@@ -81,6 +81,18 @@ const displayMovements = function(movements) {
 
 displayMovements(account1.movements);
 
+const createUsernames = function(accs) {
+  accs.forEach(function(acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUsernames(accounts);
+console.log(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -208,26 +220,26 @@ GOOD LUCK 😀
 
 // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
-const eurToUsd = 1.1;
+// const eurToUsd = 1.1;
 
-const movementsUSD = movements.map(function(mov){
-  return mov * eurToUsd;
-});
+// const movementsUSD = movements.map(function(mov){
+//   return mov * eurToUsd;
+// });
 
-const movementArrow = movements.map(mov => mov * eurToUsd);
-console.log(movementArrow);
+// const movementArrow = movements.map(mov => mov * eurToUsd);
+// console.log(movementArrow);
 
-// console.log(movements);
-// console.log(movementsUSD);
+// // console.log(movements);
+// // console.log(movementsUSD);
 
-const movementsDescriptions = movements.map((mov, i) => 
-  `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdraw'} ${Math.abs(mov)}`
+// const movementsDescriptions = movements.map((mov, i) => 
+//   `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdraw'} ${Math.abs(mov)}`
   
-  // if (mov > 0) {
-  //   return `Movement ${i + 1}: You deposited ${mov}`;
-  // } else {
-  //   return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
-  // }
-);
+//   // if (mov > 0) {
+//   //   return `Movement ${i + 1}: You deposited ${mov}`;
+//   // } else {
+//   //   return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
+//   // }
+// );
 
-console.log(movementsDescriptions);
+// console.log(movementsDescriptions);
