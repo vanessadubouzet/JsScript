@@ -81,6 +81,13 @@ const displayMovements = function(movements) {
 
 displayMovements(account1.movements);
 
+const calcDisplayBalance = function(movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance}€`;
+}
+
+calcDisplayBalance(account1.movements);
+
 const createUsernames = function(accs) {
   accs.forEach(function(acc) {
     acc.username = acc.owner
@@ -94,19 +101,27 @@ const createUsernames = function(accs) {
 createUsernames(accounts);
 console.log(accounts);
 
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-// accumulator -> SNOWBALL
-const balance = movements.reduce(function(acc, current, i, arr){
-  console.log(`Iteration ${i}: ${acc}`);
-  return acc + current;
-}, 0);
+// // accumulator -> SNOWBALL
+// const balance = movements.reduce(function(acc, current, i, arr){
+//   console.log(`Iteration ${i}: ${acc}`);
+//   return acc + current;
+// }, 0);
 
-console.log(balance);
+// // accumulator -> SNOWBALL
+// const balance = movements.reduce((acc, current) => acc + current ,0);
+
+// console.log(balance);
+
+// let balance2 = 0;
+// for(const mov of movements) balance2 += mov;
+// console.log(balance2);
 
 // const deposits = movements.filter(function(mov){
 //   return mov > 0;
@@ -252,11 +267,16 @@ GOOD LUCK 😀
 // const movementsDescriptions = movements.map((mov, i) => 
 //   `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdraw'} ${Math.abs(mov)}`
   
-//   // if (mov > 0) {
-//   //   return `Movement ${i + 1}: You deposited ${mov}`;
-//   // } else {
-//   //   return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
-//   // }
+  // if (mov > 0) {
+  //   return `Movement ${i + 1}: You deposited ${mov}`;
+  // } else {
+  //   return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
+  // }
 // );
 
 // console.log(movementsDescriptions);
+
+// Maximum value of the movements display
+// const max = movements.reduce((acc, mov) => acc > mov ? acc : mov, movements[0]);
+
+// console.log(max);
