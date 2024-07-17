@@ -215,6 +215,35 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // });
 
 
+// const eurToUsd = 1.1;
+
+// const movementsUSD = movements.map(function(mov){
+//   return mov * eurToUsd;
+// });
+
+// const movementArrow = movements.map(mov => mov * eurToUsd);
+// console.log(movementArrow);
+
+// // console.log(movements);
+// // console.log(movementsUSD);
+
+// const movementsDescriptions = movements.map((mov, i) => 
+//   `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdraw'} ${Math.abs(mov)}`
+  
+  // if (mov > 0) {
+  //   return `Movement ${i + 1}: You deposited ${mov}`;
+  // } else {
+  //   return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
+  // }
+// );
+
+// console.log(movementsDescriptions);
+
+// Maximum value of the movements display
+// const max = movements.reduce((acc, mov) => acc > mov ? acc : mov, movements[0]);
+
+// console.log(max);
+
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -252,31 +281,37 @@ GOOD LUCK 😀
 
 // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
-// const eurToUsd = 1.1;
+///////////////////////////////////////
+// Coding Challenge #2
 
-// const movementsUSD = movements.map(function(mov){
-//   return mov * eurToUsd;
-// });
+/* 
+Let's go back to Julia and Kate's study about dogs. This time, they want to convert dog ages to human ages and calculate the average age of the dogs in their study.
 
-// const movementArrow = movements.map(mov => mov * eurToUsd);
-// console.log(movementArrow);
+Create a function 'calcAverageHumanAge', which accepts an arrays of dog's ages ('ages'), and does the following things in order:
 
-// // console.log(movements);
-// // console.log(movementsUSD);
+1. Calculate the dog age in human years using the following formula: if the dog is <= 2 years old, humanAge = 2 * dogAge. If the dog is > 2 years old, humanAge = 16 + dogAge * 4.
+2. Exclude all dogs that are less than 18 human years old (which is the same as keeping dogs that are at least 18 years old)
+3. Calculate the average human age of all adult dogs (you should already know from other challenges how we calculate averages 😉)
+4. Run the function for both test datasets
 
-// const movementsDescriptions = movements.map((mov, i) => 
-//   `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdraw'} ${Math.abs(mov)}`
-  
-  // if (mov > 0) {
-  //   return `Movement ${i + 1}: You deposited ${mov}`;
-  // } else {
-  //   return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
-  // }
-// );
+TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
+TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
-// console.log(movementsDescriptions);
+GOOD LUCK 😀
+*/
 
-// Maximum value of the movements display
-// const max = movements.reduce((acc, mov) => acc > mov ? acc : mov, movements[0]);
+const calcAverageHumanAge = function(ages) {
+  const humanAge = ages.map(dogAge => dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4);
+  console.log(humanAge);
 
-// console.log(max);
+  const adultDogs = humanAge.filter(age => age >= 18);
+  console.log(adultDogs);
+
+  const adultDogsAvg = adultDogs.reduce((acc, age) => acc + age, 0);
+
+  const avg = adultDogsAvg / adultDogs.length;
+  console.log(avg);
+};
+
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
