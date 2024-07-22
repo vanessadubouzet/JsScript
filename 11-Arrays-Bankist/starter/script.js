@@ -63,10 +63,12 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 
 // Functions
-const displayMovements = function(movements) {
+const displayMovements = function(movements, sort = false) {
   containerMovements.innerHTML = '';
 
-  movements.forEach(function(mov, i){
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function(mov, i){
     const type = mov > 0 ? 'deposit' : 'withdrawal'
 
     const html = `
@@ -201,7 +203,12 @@ btnClose.addEventListener('click', function(e){
     inputCloseUsername.value = inputClosePin.value = '';
 });
 
-
+let sorted = false;
+btnSort.addEventListener('click', function(e){
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
 
 
 
@@ -211,15 +218,24 @@ btnClose.addEventListener('click', function(e){
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-// Strings
-const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
-console.log(owners.sort());
-console.log(owners);
+// // Strings
+// const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+// console.log(owners.sort());
+// console.log(owners);
 
-// Numbers
-console.log(movements);
-console.log(movements.sort());
+// // Numbers
+// console.log(movements);
 
+// return < 0, A B (keep order)
+// return > 0, B A (swtich order)
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (a < b) return -1;
+// });
+// console.log(movements);
+
+// movements.sort((a, b) => a - b);
+// console.log(movements);
 // const arr =[[1,2,3], [4,5,6], 7, 8];
 // console.log(arr.flat());
 
