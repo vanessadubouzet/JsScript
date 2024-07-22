@@ -211,31 +211,40 @@ btnClose.addEventListener('click', function(e){
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const arr =[[1,2,3], [4,5,6], 7, 8];
-console.log(arr.flat());
+// Strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+console.log(owners);
 
-const arrDeep =[[[1,2],3], [4,[5,6]], 7, 8];
-console.log(arrDeep.flat(2));
+// Numbers
+console.log(movements);
+console.log(movements.sort());
 
-const accountMovements = accounts.map(acc => acc.movements);
-console.log(accountMovements);
-const allMovements = accountMovements.flat();
-console.log(allMovements);
-const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
-console.log(overallBalance);
+// const arr =[[1,2,3], [4,5,6], 7, 8];
+// console.log(arr.flat());
 
-// Flat
-const overallBalanceChain = accounts
-  .map(acc => acc.movements)
-  .flat()
-  .reduce((acc, mov) => acc + mov, 0);
-console.log(overallBalanceChain);
+// const arrDeep =[[[1,2],3], [4,[5,6]], 7, 8];
+// console.log(arrDeep.flat(2));
 
-// flatMap
-const overallBalanceChain2 = accounts
-  .flatMap(acc => acc.movements)
-  .reduce((acc, mov) => acc + mov, 0);
-console.log(overallBalanceChain2);
+// const accountMovements = accounts.map(acc => acc.movements);
+// console.log(accountMovements);
+// const allMovements = accountMovements.flat();
+// console.log(allMovements);
+// const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+// console.log(overallBalance);
+
+// // Flat
+// const overallBalanceChain = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overallBalanceChain);
+
+// // flatMap
+// const overallBalanceChain2 = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overallBalanceChain2);
 
 // // Equality
 // console.log(movements.includes(-130));
