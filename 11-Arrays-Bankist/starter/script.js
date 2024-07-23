@@ -218,55 +218,55 @@ btnSort.addEventListener('click', function(e){
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-// 1.
-const bankDepositSum = accounts
-  .flatMap(acc => acc.movements)
-  .filter(mov => mov > 0)
-  .reduce((acc, cur) => acc + cur, 0);
-console.log(bankDepositSum);
+// // 1.
+// const bankDepositSum = accounts
+//   .flatMap(acc => acc.movements)
+//   .filter(mov => mov > 0)
+//   .reduce((acc, cur) => acc + cur, 0);
+// console.log(bankDepositSum);
 
-// 2.
-const numDeposit10001 = accounts
-.flatMap(acc => acc.movements)
-.filter(mov => mov >= 1000).length;
+// // 2.
+// const numDeposit10001 = accounts
+// .flatMap(acc => acc.movements)
+// .filter(mov => mov >= 1000).length;
 
-const numDeposit1000 = accounts
-.flatMap(acc => acc.movements)
-.reduce((acc,mov) => mov >= 1000 ? ++acc : acc, 0);
+// const numDeposit1000 = accounts
+// .flatMap(acc => acc.movements)
+// .reduce((acc,mov) => mov >= 1000 ? ++acc : acc, 0);
 
-console.log(numDeposit1000);
+// console.log(numDeposit1000);
 
-//3. 
-const {deposits, withdrawals} = accounts
-.flatMap(acc => acc.movements)
-.reduce((sums, cur) => {
-  // cur > 0 ? sums.deposits += cur : sums.withdrawals += cur;
-  // return sums;
-  sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
-  return sums;
-}, {deposits: 0, withdrawals: 0});
+// //3. 
+// const {deposits, withdrawals} = accounts
+// .flatMap(acc => acc.movements)
+// .reduce((sums, cur) => {
+//   // cur > 0 ? sums.deposits += cur : sums.withdrawals += cur;
+//   // return sums;
+//   sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+//   return sums;
+// }, {deposits: 0, withdrawals: 0});
 
-console.log(deposits, withdrawals);
+// console.log(deposits, withdrawals);
 
-// 4. 
-// this is a nice title => This Is a Nice Title
-const convertTitileCase = function(title) {
-  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+// // 4. 
+// // this is a nice title => This Is a Nice Title
+// const convertTitileCase = function(title) {
+//   const capitalize = str => str[0].toUpperCase() + str.slice(1);
 
-  const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+//   const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
 
-  const titleCase = title
-  .toLowerCase()
-  .split(' ')
-  .map(word => exceptions.includes(word) ? word : capitalize(word))
-  .join(' ');
+//   const titleCase = title
+//   .toLowerCase()
+//   .split(' ')
+//   .map(word => exceptions.includes(word) ? word : capitalize(word))
+//   .join(' ');
 
-  return capitalize(titleCase);
-};
+//   return capitalize(titleCase);
+// };
 
-console.log(convertTitileCase('this is a nice title'));
-console.log(convertTitileCase('this is a LONG title but not too long'));
-console.log(convertTitileCase('and this is another nice EXAMPLE'));
+// console.log(convertTitileCase('this is a nice title'));
+// console.log(convertTitileCase('this is a LONG title but not too long'));
+// console.log(convertTitileCase('and this is another nice EXAMPLE'));
 
 
 // const x = new Array(7);
@@ -615,6 +615,10 @@ HINT 1: Use many different tools to solve these challenges, you can use the summ
 HINT 2: Being within a range 10% above and below the recommended portion means: current > (recommended * 0.90) && current < (recommended * 1.10). Basically, the current portion should be between 90% and 110% of the recommended portion.
 
 TEST DATA:
+
+GOOD LUCK 😀
+*/
+
 const dogs = [
   { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
   { weight: 8, curFood: 200, owners: ['Matilda'] },
@@ -622,5 +626,4 @@ const dogs = [
   { weight: 32, curFood: 340, owners: ['Michael'] }
 ];
 
-GOOD LUCK 😀
-*/
+
