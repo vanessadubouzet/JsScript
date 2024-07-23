@@ -218,6 +218,21 @@ btnSort.addEventListener('click', function(e){
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+const x = new Array(7);
+console.log(x);
+console.log(x.map(() => 5));
+// console.log(x.fill(1));
+console.log(x.fill(1,3,5));
+
+// Array.from
+const z = Array.from({length : 7}, (_, i) => i + 1);
+console.log(z);
+
+labelBalance.addEventListener('click', function() {
+  const movementsUI = Array.from(document.querySelectorAll('.movements__value'),(el => Number(el.textContent.replace('€', ''))));
+  console.log(movementsUI);
+});
+
 // // Strings
 // const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
 // console.log(owners.sort());
