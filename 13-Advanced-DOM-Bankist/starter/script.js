@@ -33,75 +33,120 @@ document.addEventListener('keydown', function (e) {
 ////////////////////////////////////////////////
 //// LECTURE
 
-// Selecting elements
-console.log(document.documentElement);
-console.log(document.head);
-console.log(document.body);
+// Smooth Scrolling
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
-const header = document.querySelector('.header');
-const allSections = document.querySelectorAll('.section');
-console.log(allSections);
+btnScrollTo.addEventListener('click', function(e){
+    const s1coords = section1.getBoundingClientRect();
+    // console.log(s1coords);
 
-document.getElementById('section--1');
-const allButtons = document.getElementsByTagName('button');
-console.log(allButtons);
+    // console.log(e.target.getBoundingClientRect());
 
-console.log(document.getElementsByClassName('btn'));
+    // console.log('Current scroll (x/y)', window.pageXOffset, window.pageYOffset);
 
-// Creating and inserting elements
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-message.textContent = 'We use cookies for improved functionality and analytics.';
-message.innerHTML = 'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+    // console.log('Height/width viewport', document.documentElement.clientHeight, document.documentElement.clientWidth);
 
-// header.prepend(message);
-header.append(message);
-// header.append(message.cloneNode(true));
+    //Scrolling
+    // window.scrollTo(s1coords.left + window.pageXOffset, s1coords.top + window.pageYOffset);
 
-// header.before(message);
-// header.after(message);
+    // window.scrollTo({
+    //     left: s1coords.left + window.pageXOffset, 
+    //     top: s1coords.top + window.pageYOffset,
+    //     behavior: 'smooth'
+    // });
 
-// Delete elements
-document.querySelector('.btn--close-cookie').addEventListener('click', function() {
-  message.remove();
+    // Modern way
+    section1.scrollIntoView({
+        behavior: 'smooth'
+    });
 });
 
-// Styles
-message.style.backgroundColor = '#37383d'
-message.style.width = '120%';
+const h1 = document.querySelector('h1');
 
-console.log(message.style.backgroundColor);
-console.log(getComputedStyle(message).height);
+const alerth1 = function(e) {
+    alert('addEventListener: Great! You are reading the heading :D');
+};
 
-message.style.height = Number.parseFloat(getComputedStyle(message).height, 10) + 20 + 'px';
+h1.addEventListener('mouseenter', alerth1);
 
-document.documentElement.style.setProperty('--color-primary', 'orangered');
+// Old School
+h1.onmouseenter = function(e) {
+    alert('addEventListener: Great! You are reading the heading :D');
+};
 
-// Attributes
-const logo = document.querySelector('.nav__logo');
-console.log(logo.alt);
-console.log(logo.designer);
 
-// Non-standard
-console.log(logo.designer);
-console.log(logo.getAttribute('designer'));
-logo.setAttribute('company', 'Bankist');
 
-console.log(logo.src);
-console.log(logo.getAttribute('src'));
 
-const link = document.querySelector('.nav__link--btn');
-console.log(link.href);
-console.log(link.getAttribute('href'));
+// Selecting elements
+// console.log(document.documentElement);
+// console.log(document.head);
+// console.log(document.body);
 
-// Data Attributes
-console.log(logo.dataset.versionNumber);
+// const header = document.querySelector('.header');
+// const allSections = document.querySelectorAll('.section');
+// console.log(allSections);
 
-// Classes
-logo.classList.add('c');
-logo.classList.remove('c');
-logo.classList.toggle('c');
-logo.classList.contains('c'); // not includes
+// document.getElementById('section--1');
+// const allButtons = document.getElementsByTagName('button');
+// console.log(allButtons);
 
-// Don't use
-// logo.className = 'jonas';
+// console.log(document.getElementsByClassName('btn'));
+
+// // Creating and inserting elements
+// const message = document.createElement('div');
+// message.classList.add('cookie-message');
+// message.textContent = 'We use cookies for improved functionality and analytics.';
+// message.innerHTML = 'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+
+// // header.prepend(message);
+// header.append(message);
+// // header.append(message.cloneNode(true));
+
+// // header.before(message);
+// // header.after(message);
+
+// // Delete elements
+// document.querySelector('.btn--close-cookie').addEventListener('click', function() {
+//   message.remove();
+// });
+
+// // Styles
+// message.style.backgroundColor = '#37383d'
+// message.style.width = '120%';
+
+// console.log(message.style.backgroundColor);
+// console.log(getComputedStyle(message).height);
+
+// message.style.height = Number.parseFloat(getComputedStyle(message).height, 10) + 20 + 'px';
+
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+// // Attributes
+// const logo = document.querySelector('.nav__logo');
+// console.log(logo.alt);
+// console.log(logo.designer);
+
+// // Non-standard
+// console.log(logo.designer);
+// console.log(logo.getAttribute('designer'));
+// logo.setAttribute('company', 'Bankist');
+
+// console.log(logo.src);
+// console.log(logo.getAttribute('src'));
+
+// const link = document.querySelector('.nav__link--btn');
+// console.log(link.href);
+// console.log(link.getAttribute('href'));
+
+// // Data Attributes
+// console.log(logo.dataset.versionNumber);
+
+// // Classes
+// logo.classList.add('c');
+// logo.classList.remove('c');
+// logo.classList.toggle('c');
+// logo.classList.contains('c'); // not includes
+
+// // Don't use
+// // logo.className = 'jonas';
