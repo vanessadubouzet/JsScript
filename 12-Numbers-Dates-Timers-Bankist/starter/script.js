@@ -361,3 +361,22 @@ btnSort.addEventListener('click', function (e) {
 
 // console.log(Number('230000'));
 
+// console.log(2 ** 53 - 1);
+// console.log(Number.MAX_SAFE_INTEGER);
+
+// console.log(41863165418541484564564836895416451635n);
+// console.log(BigInt(41863165418541484));
+
+// // Operations
+// console.log(10000n + 10000n);
+// console.log(4698486574685418n * 6418936749n);
+
+// // Exceptions
+// console.log(20n > 15);
+// console.log(20n === 20);
+// console.log(typeof 20n);
+// console.log(20n == '20');
+
+// // Divisions
+// console.log( 10n / 3n);
+
