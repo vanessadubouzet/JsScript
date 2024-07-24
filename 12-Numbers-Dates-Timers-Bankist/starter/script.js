@@ -252,66 +252,112 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // LECTURES
 
-console.log(23 === 23.0);
 
-// Base 10 - 0 to 9. 1/10 = 0.1 3/10 = 3.333333
-// Binary base 2 - 0 1
-console.log(0.1 + 0.2);
-console.log(0.1 + 0.2 === 0.3);
+// console.log(23 === 23.0);
 
-// Conversion
-console.log(Number('23'));
-console.log(+'23');
+// // Base 10 - 0 to 9. 1/10 = 0.1 3/10 = 3.333333
+// // Binary base 2 - 0 1
+// console.log(0.1 + 0.2);
+// console.log(0.1 + 0.2 === 0.3);
 
-// Parsing
-console.log(Number.parseInt('30px', 10));
-console.log(Number.parseInt('e30', 10));
+// // Conversion
+// console.log(Number('23'));
+// console.log(+'23');
 
-console.log(Number.parseFloat('2.5rem'));
-console.log(Number.parseInt('2.5rem'));
+// // Parsing
+// console.log(Number.parseInt('30px', 10));
+// console.log(Number.parseInt('e30', 10));
 
-console.log(Number.isNaN(20));
-console.log(Number.isNaN('20'));
-console.log(Number.isNaN(+'20X'));
-console.log(Number.isNaN(20 / 0));
+// console.log(Number.parseFloat('2.5rem'));
+// console.log(Number.parseInt('2.5rem'));
 
-// Checking if value is Number
-console.log(Number.isFinite(20));
-console.log(Number.isFinite('20'));
-console.log(Number.isFinite(+'20X'));
-console.log(Number.isFinite(20 / 0));
+// console.log(Number.isNaN(20));
+// console.log(Number.isNaN('20'));
+// console.log(Number.isNaN(+'20X'));
+// console.log(Number.isNaN(20 / 0));
 
-console.log(Math.sqrt(25));
-console.log(25 ** (1/2));
-console.log(8 ** (1/3));
+// // Checking if value is Number
+// console.log(Number.isFinite(20));
+// console.log(Number.isFinite('20'));
+// console.log(Number.isFinite(+'20X'));
+// console.log(Number.isFinite(20 / 0));
 
-console.log(Math.max(5, 18, 23, 11, 2));
-console.log(Math.min(5, 18, 23, 11, 2));
+// console.log(Math.sqrt(25));
+// console.log(25 ** (1/2));
+// console.log(8 ** (1/3));
 
-console.log(Math.PI * Number.parseFloat('10px') ** 2);
+// console.log(Math.max(5, 18, 23, 11, 2));
+// console.log(Math.min(5, 18, 23, 11, 2));
 
-console.log(Math.trunc(Math.random() * 10) + 1);
+// console.log(Math.PI * Number.parseFloat('10px') ** 2);
 
-const randomInt = (min, max) => Math.floor(Math.random() * (max - min) + 1) + min;
-console.log(randomInt(10,20));
+// console.log(Math.trunc(Math.random() * 10) + 1);
 
-// Rounding Integers
-console.log(Math.trunc(23.2));
+// const randomInt = (min, max) => Math.floor(Math.random() * (max - min) + 1) + min;
+// console.log(randomInt(10,20));
 
-console.log(Math.round(23.2));
-console.log(Math.round(23.9));
+// // Rounding Integers
+// console.log(Math.trunc(23.2));
 
-console.log(Math.ceil(23.2));
-console.log(Math.ceil(23.9));
+// console.log(Math.round(23.2));
+// console.log(Math.round(23.9));
 
-console.log(Math.floor(23.2));
-console.log(Math.floor(23.9));
+// console.log(Math.ceil(23.2));
+// console.log(Math.ceil(23.9));
 
-console.log(Math.trunc(-23.2));
-console.log(Math.floor(-23.9));
+// console.log(Math.floor(23.2));
+// console.log(Math.floor(23.9));
 
-// Rounding decimals
-console.log((2.7).toFixed(0));
-console.log((2.7).toFixed(3));
-console.log((2.345).toFixed(2));
-console.log(+(2.345).toFixed(2));
+// console.log(Math.trunc(-23.2));
+// console.log(Math.floor(-23.9));
+
+// // Rounding decimals
+// console.log((2.7).toFixed(0));
+// console.log((2.7).toFixed(3));
+// console.log((2.345).toFixed(2));
+// console.log(+(2.345).toFixed(2));
+
+// console.log(5 % 2);
+// console.log(5/2); // 5 = 2 * 2 + 1
+// console.log(8 % 3); 
+// console.log(8 / 3); // 8 = 2 * 3 + 2
+
+// // Even? divisible by 2 
+// console.log(6 % 2);
+// console.log(6 / 2);
+
+// // Odd? not divisible by 2
+// console.log(7 % 2);
+// console.log(7 / 2);
+
+// const isEven = n => n % 2 === 0;
+// console.log(isEven(8));
+// console.log(isEven(113));
+// console.log(isEven(23));
+
+// labelBalance.addEventListener('click', function() {
+
+
+// [...document.querySelectorAll('.movements__row')].
+//   forEach(function(row, i) {
+//     if (i % 2 === 0) row.style.backgroundColor = 'red';
+//     if(i % 3 === 0) row.style.backgroundColor = 'blue';
+//   });
+// });
+
+
+// 287,460,000,000
+// const diameter = 287_460_000_000;
+// console.log(diameter);
+
+// const price = 345_99;
+// console.log(price);
+
+// const transferFee1 = 15_00;
+// const transferFee2 = 1_500;
+
+// const PI = 3.14_15;
+// console.log(PI);
+
+// console.log(Number('230000'));
+
