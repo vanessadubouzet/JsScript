@@ -74,6 +74,22 @@ const countriesContainer = document.querySelector('.countries');
 // getCountryData('canada');
 // getCountryData('philippines');
 
+// const getCountryData = function (country) {
+//     fetch(`https://restcountries.com/v3.1/name/${country}`)
+//         .then(function (response) {
+//             console.log(response);
+//             return response.json();
+//         }).then(function ([data]) {
+//             console.log(data);
+//             renderCountry(data);
+//         });
+// };
+
+const renderError = function(msg) {
+    countriesContainer.insertAdjacentText('beforeend', msg);
+    // countriesContainer.style.opacity = 1;
+};
+
 const renderCountry = function (data, className = '') {
     const languages = Object.values(data.languages);
     const currencies = Object.values(data.currencies);
@@ -94,19 +110,8 @@ const renderCountry = function (data, className = '') {
     `;
 
     countriesContainer.insertAdjacentHTML('beforeend', html);
-    countriesContainer.style.opacity = 1;
+    // countriesContainer.style.opacity = 1;
 }
-
-// const getCountryData = function (country) {
-//     fetch(`https://restcountries.com/v3.1/name/${country}`)
-//         .then(function (response) {
-//             console.log(response);
-//             return response.json();
-//         }).then(function ([data]) {
-//             console.log(data);
-//             renderCountry(data);
-//         });
-// };
 
 const getCountryData = function (country) {
     // Country 1
@@ -124,7 +129,14 @@ const getCountryData = function (country) {
                     .then(response => response.json())
                     .then(data => renderCountry(data[0] ,'neighbour'));
         });
+    })
+    .catch(err => renderError(err.message))
+    .finally(() => {
+        countriesContainer.style.opacity = 1;
     });
 };
 
-getCountryData('portugal');
+btn.addEventListener('click', function(){
+    getCountryData('portugal');
+});
+
