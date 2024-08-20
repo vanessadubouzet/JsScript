@@ -113,11 +113,47 @@ const renderCountry = function (data, className = '') {
     // countriesContainer.style.opacity = 1;
 }
 
+const getJSON = function(url, errMsg = 'Something went wrong') {
+    return fetch(url).then(response => {
+        if(!response.ok)
+            throw new Error(`${errMsg} ${response.status}`);
+
+        return response.json();
+    });
+}
+
+// const getCountryData = function (country) {
+//     // Country 1
+//     fetch(`https://restcountries.com/v3.1/name/${country}`)
+//         .then(response => {
+//             if(!response.ok)
+//                 throw new Error(`Country not found ${response.status}`);
+
+//             return response.json();
+//         })
+//         .then(data => {
+//             renderCountry(data[0]);
+//             const neighbour = data[0].borders;
+
+//             if(!neighbour) return;
+
+//             // Country 2
+//             return neighbour.forEach(code => {
+//                 fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`)
+//                     .then(response => response.json())
+//                     .then(data => renderCountry(data[0] ,'neighbour'));
+//         });
+//     })
+//     .catch(err => renderError(err.message))
+//     .finally(() => {
+//         countriesContainer.style.opacity = 1;
+//     });
+// };
+
 const getCountryData = function (country) {
     // Country 1
-    fetch(`https://restcountries.com/v3.1/name/${country}`)
-        .then(response => response.json())
-        .then(data => {
+    getJSON(`https://restcountries.com/v3.1/name/${country}`, `Country not found`)
+    .then(data => {
             renderCountry(data[0]);
             const neighbour = data[0].borders;
 
@@ -125,8 +161,7 @@ const getCountryData = function (country) {
 
             // Country 2
             return neighbour.forEach(code => {
-                fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`)
-                    .then(response => response.json())
+                getJSON(`https://restcountries.com/v3.1/alpha/${neighbour}`)
                     .then(data => renderCountry(data[0] ,'neighbour'));
         });
     })
@@ -137,6 +172,6 @@ const getCountryData = function (country) {
 };
 
 btn.addEventListener('click', function(){
-    getCountryData('portugal');
+    getCountryData('japan');
 });
 
